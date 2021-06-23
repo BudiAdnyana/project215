@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('barang', 'API\ProductController@index');
+Route::get('barang/{data}', 'API\ProductController@show');
+
+Route::get('kategori', 'API\CategoryController@index');
+Route::get('kategori/{data}', 'API\CategoryController@show');
+
+
+//tambah data 
+Route::post('barang', 'API\ProductController@store');
+//hapus data
+Route::delete('barang/{id}', 'API\ProductController@destroy');
+
+Route::post('kategori', 'API\CategoryController@store');
+Route::delete('kategori/{id}', 'API\CategoryController@destroy');
